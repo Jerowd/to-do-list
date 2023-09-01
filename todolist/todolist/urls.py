@@ -23,4 +23,6 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('task-create/', views.task_create, name='task-create'),
     path('task-list/', views.task_list, name='task-list'),
+    path('update_task_status/<int:task_id>/', views.update_task_status, name='update-task-status'),
+
 ]

@@ -110,4 +110,26 @@ form .task-submit{
   border: none; /* Supprime la bordure par défaut du bouton */
   border-radius: 5px; /* Coins arrondis */
   cursor: pointer; /* Change le curseur en main lorsque survolé */
+  &:hover {
+    background-color: #111;
+  }
+}
+
+form button{
+  width: fit-content;
+  background-color: #333;
+  color: #fff; /* Couleur du texte */
+  font-size: 16px; /* Taille de la police */
+  padding: 10px 20px; /* Espacement à l'intérieur du bouton (haut/bas, gauche/droite) */
+  border: none; /* Supprime la bordure par défaut du bouton */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur en main lorsque survolé */
+  &:hover {
+    background-color: #111;
+  }
+}
+
+form button a{
+  text-decoration: none;
+  color: #fff;
 }

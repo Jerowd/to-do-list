@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from listings.forms import TaskForm
 from listings.models import Task
+from django.http import JsonResponse
+
 # Create your views here.
 
 def home(request):
@@ -29,3 +31,11 @@ def task_create(request):
     return render(request,
             'listings/task_create.html',
             {'form': form})
+
+def update_task_status(request, task_id):
+    task = Task.objects.get(id=task_id)
+    task.finie = not task.finie
+    task.save()
+    return JsonResponse({'success': True})
+
+

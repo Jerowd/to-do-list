@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -14,4 +15,7 @@ class Task(models.Model):
 
     def __str__(self) -> str:
         return f'{self.titre}'
+    
+    def get_absolute_url(self):
+        return reverse('update_task', args=[str(self.id)])  # Utilisé pour obtenir l'URL de mise à jour de la tâche
     

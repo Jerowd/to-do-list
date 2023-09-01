@@ -5,7 +5,8 @@
 <form action="" method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <input class="task-submit" type="submit" value="Créer">
+  <input class="task-submit" type="submit" value="Créer et ajouter une nouvelle">
+  <button class = "task-submit-return"><a href="{% url 'task-list' %}">Créer et retourner à la liste des tâches</a></button>
 </form>
 
 
