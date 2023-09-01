@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+    <head><title>To-do-list</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
+    </head>
+    <body>
+        <nav>
+            
+            <ul>
+                <li><a class="nav-logo" href="{% url 'home' %}">To-do-list</a></li>
+                <li><a href="#">Tâches</a></li>
+                <li><a href="#">Aujourd'hui</a></li>
+                <li><a href="#">Historique</a></li>
+                <li><a href="#">Mon compte</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+        {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

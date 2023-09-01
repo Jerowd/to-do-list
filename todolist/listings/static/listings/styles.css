@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+}
+
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+nav {
+  align-items: center;
+}
+
+nav .nav-logo {
+  font-size: 24;
+  padding: 7px 8px;
+}
+.content {
+  margin-left: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+li {
+  float: left;
+}
+
+.create-button a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} 
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+.create-button {
+    width: fit-content;
+    background-color: #333;
+    color: #fff; /* Couleur du texte */
+    font-size: 16px; /* Taille de la police */
+    padding: 10px 20px; /* Espacement à l'intérieur du bouton (haut/bas, gauche/droite) */
+    border: none; /* Supprime la bordure par défaut du bouton */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Change le curseur en main lorsque survolé */
+    
+}
+
+
+
+.create-button:hover {
+    background-color: #111;
+}
+
+textarea {
+  height: auto; /* Allow the height to adjust based on content */
+  resize: vertical; /* Allow vertical resizing */
+  padding: 5px; /* Add padding for better appearance */
+  border: 1px solid #ccc; /* Add a border for a visual separation */
+  font-size: 14px; /* Set the font size */
+}
+
+form p {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+form p label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+form .task-submit{
+  width: fit-content;
+  background-color: #333;
+  color: #fff; /* Couleur du texte */
+  font-size: 16px; /* Taille de la police */
+  padding: 10px 20px; /* Espacement à l'intérieur du bouton (haut/bas, gauche/droite) */
+  border: none; /* Supprime la bordure par défaut du bouton */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur en main lorsque survolé */
+}

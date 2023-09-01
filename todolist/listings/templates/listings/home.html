@@ -1,0 +1,10 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+<h2>Bienvenue sur To-do-list</h2>
+<h3>Gérez vos tâches à effectuer pour rester motivés !</h3>
+<div class="create-button"><a href="{% url 'task-create' %}">Créez une nouvelle tâche</a></div>
+<p>Cliquez sur +New pour créer une nouvelle tâche.</p>
+<p>Cliquez sur une tâche pour la modifier</p>
+<p>Cliquez sur ☑ pour valider une tâche</p>
+<p>Cliquez sur Historique pour voire toutes les tâches que vous avez effectuées</p>
+{% endblock %}
