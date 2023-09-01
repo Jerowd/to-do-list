@@ -1,10 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from listings.forms import TaskForm
+from listings.models import Task
 # Create your views here.
 
 def home(request):
     return render(request, 'listings/home.html')
+
+def task_list(request):
+    tasks = Task.objects.all()
+    return render(request, 'listings/task_list.html',{'tasks':tasks})
 
 def task_create(request):
     if request.method == 'POST':

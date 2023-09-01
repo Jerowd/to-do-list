@@ -1,0 +1,12 @@
+{% extends 'listings/base.html' %}
+{% block content %}
+<div class="page-bande-top">
+    <h2 class="annonces_disponibles">{{tasks|length}} tâches à effectuer.</h2>
+    <div class="create-button"><a href="{% url 'task-create' %}">Nouvelle tâche</a></div>
+</div>
+<ul class="liste_annonces">
+    {% for task in tasks %}
+    <li class="task-inlist"><a href="#">{{task.titre}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
