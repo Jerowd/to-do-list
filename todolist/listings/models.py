@@ -8,7 +8,8 @@ class Task(models.Model):
     class Importance(models.TextChoices):
         FAIBLE = 'Faible',
         MOYENNE = 'Moyenne',
-        ELEVEE = 'Elevée'
+        ELEVEE = 'Elevée',
+    importance = models.fields.CharField(choices=Importance.choices, max_length=15, default=Importance.FAIBLE)
     titre = models.fields.TextField(max_length=100)
     description = models.fields.TextField(max_length=2000)
     finie = models.fields.BooleanField(default = False)

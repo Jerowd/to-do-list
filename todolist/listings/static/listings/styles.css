@@ -133,3 +133,62 @@ form button a{
   text-decoration: none;
   color: #fff;
 }
+
+.liste_annonces{
+  display: flex;
+  flex-direction: column;
+  list-style:none;
+  padding-left:0;
+}
+
+.liste_annonces .task-inlist{
+  display:flex;
+  flex-direction: row;
+  list-style: none;
+  padding-left: 0;
+  justify-content: space-between;
+  align-items: center;
+  border: #111;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 5px 12px;
+  background-color: antiquewhite;
+}
+.liste_annonces .task-inlist a{
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 12px;  
+}
+
+.liste_annonces button {
+  width: fit-content;
+  background-color: #333;
+  color: #fff; /* Couleur du texte */
+  font-size: 16px; /* Taille de la police */
+  padding: 10px 20px; /* Espacement à l'intérieur du bouton (haut/bas, gauche/droite) */
+  border: none; /* Supprime la bordure par défaut du bouton */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur en main lorsque survolé */
+}
+
+.task-return {
+  width: fit-content;
+  background-color: #ff4d4d;
+  color: #fff; /* Couleur du texte */
+  font-size: 16px; /* Taille de la police */
+  padding: 10px 20px; /* Espacement à l'intérieur du bouton (haut/bas, gauche/droite) */
+  border: none; /* Supprime la bordure par défaut du bouton */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Change le curseur en main lorsque survolé */
+  &:hover {
+    background-color: #d80e0e;
+  }
+}
+
+.task-return a {
+  color: white;
+  text-decoration: none;
+}

@@ -26,7 +26,9 @@
     {% if not task.finie %}
     <li class="task-inlist">
         <a href="#">{{ task.titre }}</a>
-        <button class="update-task-button" data-task-id="{{ task.id }}">Mettre à jour</button>
+        <p>{{ task.jour }}</p>
+        <p>{{ task.importance }}</p>
+        <button class="update-task-button" data-task-id="{{ task.id }}">Valider</button>
     </li>
     {% endif %}
     {% endfor %}
