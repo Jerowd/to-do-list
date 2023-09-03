@@ -3,6 +3,7 @@ from django.shortcuts import render
 from listings.forms import TaskForm
 from listings.models import Task
 from django.http import JsonResponse
+from django.utils import timezone
 
 # Create your views here.
 
@@ -39,3 +40,7 @@ def update_task_status(request, task_id):
     return JsonResponse({'success': True})
 
 
+def today_tasks(request):
+    current_date = timezone.now().date().strftime('%Y-%m-%d')
+    tasks = Task.objects.filter(jour=current_date)
+    return render(request, 'listings/today_tasks.html', {'tasks': tasks})

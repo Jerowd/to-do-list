@@ -1,0 +1,81 @@
+{% extends 'listings/base.html' %}
+
+
+
+{% block content %}
+<div class="page-bande-top">
+    <h2 class="annonces_disponibles">
+        {% with unfinished_tasks=0 %}
+        {% for task in tasks %}
+            {% if not task.finie %}
+                {% with unfinished_tasks=unfinished_tasks|add:1 %}
+                {% endwith %}
+            {% endif %}
+        {% endfor %}
+        {% if unfinished_tasks == 0 %} Aucune tâche à effectuer aujourd'hui.
+        {% elif unfinished_tasks == 1 %} 1 tâche à effectuer aujourd'hui.
+        {% else %}
+            {{ unfinished_tasks }} tâches à effectuer aujourd'hui.
+        {% endif %}
+        {% endwith %}    
+    </h2>
+    <div class="create-button"><a href="{% url 'task-create' %}">Nouvelle tâche</a></div>
+</div>
+<ul class="liste_annonces">
+    {% for task in tasks %}
+    {% if not task.finie %}
+    <li class="task-inlist">
+        <a href="#">{{ task.titre }}</a>
+        <p>{{ task.jour }}</p>
+        <p>{{ task.importance }}</p>
+        <button class="update-task-button" data-task-id="{{ task.id }}">Valider</button>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Obtenez le jeton CSRF à partir des cookies
+        var csrftoken = getCookie('csrftoken');
+        
+        // Fonction pour obtenir la valeur du cookie CSRF
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = $.trim(cookies[i]);
+                    // Vérifiez si le cookie porte le nom csrftoken
+                    if (cookie.substring(0, 10) === 'csrftoken=') {
+                        cookieValue = decodeURIComponent(cookie.substring(10));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        $('.update-task-button').click(function() {
+            var task_id = $(this).data('task-id');
+            $.ajax({
+                url: `/update_task_status/${task_id}/`,
+                method: 'POST',
+                dataType: 'json',
+                headers: {'X-CSRFToken': csrftoken}, // Incluez le jeton CSRF dans les en-têtes
+                success: function(response) {
+                    if (response.success) {
+                        // Mettez à jour l'affichage ou effectuez d'autres actions si nécessaire
+                        location.reload(); // Recharge la page pour refléter les changements
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Gérer les erreurs ici si nécessaire
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

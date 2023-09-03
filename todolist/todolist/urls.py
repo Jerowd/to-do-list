@@ -21,8 +21,8 @@ from listings import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.home, name='home'),
-    path('task-create/', views.task_create, name='task-create'),
-    path('task-list/', views.task_list, name='task-list'),
-    path('update_task_status/<int:task_id>/', views.update_task_status, name='update-task-status'),
-
+    path('tasks/create/', views.task_create, name='task-create'),
+    path('tasks/all/', views.task_list, name='task-list'),
+    path('tasks/update/<int:task_id>/', views.update_task_status, name='update-task-status'),
+    path('tasks/today/', views.today_tasks, name='today-tasks'),
 ]
